@@ -1,0 +1,31 @@
+{
+  "name": "weflow-focus",
+  "version": "0.1.0",
+  "description": "WeFlow 白名单群聊监控与 AI 小时摘要桌面应用",
+  "main": "src/main.js",
+  "author": "WeFlow Focus",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test",
+    "dist:win": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "local.weflow.focus",
+    "productName": "WeFlow Focus",
+    "asar": true,
+    "files": ["src/**/*", "package.json"],
+    "directories": {"output": "dist"},
+    "win": {"target": [{"target": "nsis", "arch": ["x64"]}]},
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
